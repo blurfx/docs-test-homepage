@@ -1,0 +1,13 @@
+{
+  "name": "docs-test-homepage",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "update-sdks": "git submodule update --init --remote"
+  },
+  "devDependencies": {
+    "vitepress": "^1.5.0"
+  }
+}

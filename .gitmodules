@@ -1,0 +1,6 @@
+[submodule "sdks/js-sdk"]
+	path = sdks/js-sdk
+	url = https://github.com/blurfx/docs-test-sub-a
+[submodule "sdks/go-sdk"]
+	path = sdks/go-sdk
+	url = https://github.com/blurfx/docs-test-sub-b
