@@ -5,6 +5,19 @@ on:
     branches: [main]
 
   workflow_dispatch:
+    inputs:
+      source_repo:
+        description: Source repository (owner/repo)
+        required: false
+        type: string
+      source_ref:
+        description: Source ref (e.g. refs/heads/main)
+        required: false
+        type: string
+      source_sha:
+        description: Source commit SHA
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -21,6 +34,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+      - name: Trigger info
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          echo "Triggered by workflow_dispatch"
+          echo "source_repo=${{ github.event.inputs.source_repo }}"
+          echo "source_ref=${{ github.event.inputs.source_ref }}"
+          echo "source_sha=${{ github.event.inputs.source_sha }}"
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
